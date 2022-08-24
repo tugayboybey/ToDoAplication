@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ToDoAplication.Models.ToDo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="margin-left:5px; margin-top:5px">Yapılmayan Gorevler</h1>
+
+
+<br />
+<a asp-action="TamamlananGorev" class="btn btn-success" style="margin-left:5px">Tamamlanmış Görev listesi</a>
+<br />
+<br />
+<table style="margin-left:5px" class="table table-bordered dataTable-top">
+
+    <thead class=" border-0 ">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Todo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comment)
+            </th>
+              <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Todo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+
+                <td>
+                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.ID"> Görevi Düzenle</a>
+                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.ID">Detayları Gör</a>
+                    <a class=" btn btn-danger" asp-action="Delete" asp-route-id="@item.ID">Görevleri Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+    @if (ViewBag.sorgu!=null)
+    {
+        <div style="color:red">
+            Zamanı geçen görevleriniz var lütfen görevlerinizi kontrol ediniz
+        </div>
+       
+    }
+</table>
+<p style="margin-left:5px">
+    <a class="btn btn-primary" asp-action="Create">Yeni Görev Oluştur</a>
+</p>

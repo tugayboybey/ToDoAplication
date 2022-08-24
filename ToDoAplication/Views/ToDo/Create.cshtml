@@ -1,0 +1,85 @@
+﻿@model ToDoAplication.Models.ToDo
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+@*<h1 style="color:white">Yeni Görev Oluştur.</h1>
+*@
+
+
+
+
+
+
+<body class="bg-warning">
+    <div id="layoutAuthentication">
+        <div id="layoutAuthentication_content">
+            <main>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-7">
+                            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                <div class="card-header"><h3 class="text-center font-weight-light my-4">Görev Oluştur</h3></div>
+                                <div class="card-body">
+                                    <form asp-action="Create" method="post">
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-12">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <div class="form-group ">
+                                                        <label asp-for="Todo" class="control-label"></label>
+                                                        <input asp-for="Todo" class="form-control" />
+                                                        <span asp-validation-for="Todo" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <div class="col-md-12">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <div class="form-group">
+                                                        <label asp-for="Comment" class="control-label"></label>
+                                                      
+                                                        <textarea asp-for="Comment" class="form-control"></textarea>
+                                                        <span asp-validation-for="Comment" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                     <div class="form-group">
+                                                        <label asp-for="Date" class="control-label"></label>
+                                                        <input asp-for="Date" class="form-control" />
+                                                        <span asp-validation-for="Date" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mt-4 mb-0">
+                                            <div class="form-group">
+                                                <input type="submit" value="Görevi Oluştur" class="btn btn-primary" />
+                                                <a class="btn btn-danger" asp-action="Index">Görevler Listesine Gör</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+    </div>
+</body>
+
+
+
+
+
+
